@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/fonts/medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://screens/sphere_scene/sphere_scene.gd" type="Script" id=2]
@@ -8,6 +8,34 @@
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.180392, 0.996078, 0.996078, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.180392, 0.996078, 0.996078, 0.666667 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 0 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="SphereScene" type="Spatial"]
 script = ExtResource( 2 )
@@ -35,17 +63,26 @@ custom_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
 margin_left = 300.0
-margin_top = 505.0
+margin_top = 470.0
 margin_right = 724.0
 margin_bottom = 550.0
-size_flags_vertical = 8
+rect_min_size = Vector2( 0, 80 )
+size_flags_vertical = 10
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
 margin_right = 424.0
-margin_bottom = 45.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Выход"
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "ВЫХОД"
 
 [connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

@@ -2,8 +2,8 @@ extends Control
 class_name MainSceneDialog
 
 onready var title = $PanelContainer/MarginContainer/GridContainer/Label
-onready var confirm_button = $PanelContainer/MarginContainer/GridContainer/HBoxContainer/ConfirmButton
-onready var cancel_button = $PanelContainer/MarginContainer/GridContainer/HBoxContainer/CancelButton
+onready var confirm_button = $PanelContainer/MarginContainer/GridContainer/MarginContainer/HBoxContainer/ConfirmButton
+onready var cancel_button = $PanelContainer/MarginContainer/GridContainer/MarginContainer/HBoxContainer/CancelButton
 var caller: Button
 
 
