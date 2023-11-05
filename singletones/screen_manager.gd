@@ -3,6 +3,7 @@ extends Node
 var main_scene = preload("res://screens/main_scene/main_scene.tscn")
 var sphere_scene = preload("res://screens/sphere_scene/sphere_scene.tscn")
 var effect_scene = preload("res://screens/effect_scene/effect_scene.tscn")
+var fade_effect_scene = preload("res://addons/screen_fade_effect/fade_effect.tscn")
 
 var _params = null
 

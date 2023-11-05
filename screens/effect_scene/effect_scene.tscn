@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/pendulum_flame/pendulum_flame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/effect_scene/controller.gd" type="Script" id=2]
 [ext_resource path="res://addons/fonts/Medium.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://screens/effect_scene/effect_scene.gd" type="Script" id=4]
+[ext_resource path="res://addons/screen_fade_effect/fade_effect.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -62,6 +63,13 @@ size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
 text = "Выход"
 
+[node name="FadeEffect" parent="." instance=ExtResource( 5 )]
+fade_mode = 0
+
+[node name="ColorRect" parent="FadeEffect/Control" index="0"]
+color = Color( 0, 0, 0, 1 )
+
 [connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 
 [editable path="Floor"]
+[editable path="FadeEffect"]
