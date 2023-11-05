@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://addons/fonts/Medium.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/fonts/medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://addons/dialog/dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://screens/main_scene/button1.gd" type="Script" id=3]
 [ext_resource path="res://screens/main_scene/button2.gd" type="Script" id=4]

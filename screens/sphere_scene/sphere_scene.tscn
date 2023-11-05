@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/fonts/Medium.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/fonts/medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://screens/sphere_scene/sphere_scene.gd" type="Script" id=2]
 [ext_resource path="res://addons/moving_sphere/moving_sphere.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/idle_flame/idle_flame.tscn" type="PackedScene" id=4]
