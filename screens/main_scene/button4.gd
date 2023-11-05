@@ -3,7 +3,8 @@ extends BaseDialogButton
 
 func _on_Button4_pressed():
 	self.dialog.title.text = "ПОДТВЕРЖДЕНИЕ ВЫХОДА ИЗ ПРИЛОЖЕНИЯ"
-	self.dialog.confirm_button.text = "ВЫЙТИ"
+	self.dialog.confirm_button.text = "ДА"
+	self.dialog.cancel_button.text = "НЕТ"
 	self.dialog.caller = self
 	self.dialog.show()
 	
