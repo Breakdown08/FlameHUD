@@ -4,6 +4,7 @@ extends BaseDialogButton
 func _on_Button1_pressed():
 	self.dialog.title.text = "ПОДТВЕРЖДЕНИЕ ПЕРЕХОДА НА ДРУГУЮ СЦЕНУ"
 	self.dialog.confirm_button.text = "ПЕРЕХОД"
+	self.dialog.cancel_button.text = "ОТМЕНА"
 	self.dialog.caller = self
 	self.dialog.show()
 
