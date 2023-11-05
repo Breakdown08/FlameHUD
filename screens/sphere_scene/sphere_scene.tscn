@@ -1,23 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/fonts/medium.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://screens/sphere_scene/sphere_scene.gd" type="Script" id=2]
 [ext_resource path="res://addons/moving_sphere/moving_sphere.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/idle_flame/idle_flame.tscn" type="PackedScene" id=4]
 
+[sub_resource type="Environment" id=6]
+background_mode = 1
+
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.180392, 0.996078, 0.996078, 1 )
+bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.180392, 0.996078, 0.996078, 0.666667 )
+bg_color = Color( 1, 1, 1, 0.666667 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -31,7 +34,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.180392, 0.996078, 0.996078, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -43,9 +46,12 @@ script = ExtResource( 2 )
 [node name="IdleFlame" parent="." instance=ExtResource( 4 )]
 
 [node name="MovingSphere" parent="." instance=ExtResource( 3 )]
+movement_radius = 5.0
+speed = 60.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 15 )
+transform = Transform( 1, 0, 0, 0, 0.888201, 0.459456, 0, -0.459456, 0.888201, 0, 3.89538, 9.83388 )
+environment = SubResource( 6 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

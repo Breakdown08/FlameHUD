@@ -1,6 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://addons/particles/flames.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/images/fire.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 0.180392, 0.996078, 0.996078, 1, 0, 0, 0, 1 )
@@ -27,7 +37,12 @@ scale = 6.0
 scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 
-[node name="IdleFlame" type="Spatial"]
+[sub_resource type="QuadMesh" id=7]
 
-[node name="Flames" parent="." instance=ExtResource( 3 )]
+[node name="Flames" type="Particles"]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+material_override = SubResource( 1 )
+amount = 16
+lifetime = 1.6
 process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )

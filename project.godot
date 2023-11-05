@@ -52,7 +52,9 @@ _global_script_class_icons={
 
 config/name="FlameHUD"
 run/main_scene="res://screens/main_scene/main_scene.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
@@ -61,6 +63,7 @@ ScreenManager="*res://singletones/screen_manager.gd"
 
 [display]
 
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 
 [gui]

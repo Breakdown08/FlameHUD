@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/pendulum_flame/pendulum_flame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/effect_scene/controller.gd" type="Script" id=2]
@@ -6,19 +6,22 @@
 [ext_resource path="res://screens/effect_scene/effect_scene.gd" type="Script" id=4]
 [ext_resource path="res://addons/screen_fade_effect/fade_effect.tscn" type="PackedScene" id=5]
 
+[sub_resource type="Environment" id=6]
+background_mode = 1
+
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.180392, 0.996078, 0.996078, 1 )
+bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.180392, 0.996078, 0.996078, 0.666667 )
+bg_color = Color( 1, 0.996078, 1, 0.666667 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -28,7 +31,7 @@ corner_radius_bottom_left = 20
 bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.180392, 0.996078, 0.996078, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -43,7 +46,8 @@ speed_mode = 49
 polarity = -1
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.00177686, 0.227468, -0.973784, 0, 0.973786, 0.227468, 0.999998, 0.000404178, -0.00173028, -9.13047, 2.59697, -0.269502 )
+transform = Transform( -0.00177686, 0.227468, -0.973784, 0, 0.973786, 0.227468, 0.999998, 0.000404179, -0.00173028, -6.62597, 2.59697, -0.269502 )
+environment = SubResource( 6 )
 current = true
 
 [node name="EffectSceneController" type="Node" parent="."]
@@ -87,7 +91,6 @@ custom_styles/normal = SubResource( 5 )
 text = "ВЫХОД"
 
 [node name="FadeEffect" parent="." instance=ExtResource( 5 )]
-visible = false
 fade_mode = 0
 
 [node name="ColorRect" parent="FadeEffect/Control" index="0"]

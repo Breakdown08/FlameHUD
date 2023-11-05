@@ -6,6 +6,8 @@ var dt: float = 0.0
 export var movement_radius: float = 10.0
 export var speed: float = 6.0
 var delimiter: int = 10
+onready var trail = $CSGSphere/Trail
+onready var timer = $Timer
 
 
 func _process(delta):
@@ -15,3 +17,7 @@ func _process(delta):
 		0,
 		cos(dt * speed / delimiter) * movement_radius
 	) + Vector3.ZERO
+
+
+func _on_Timer_timeout():
+	trail.emitting = true
