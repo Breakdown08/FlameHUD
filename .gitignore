@@ -5,6 +5,7 @@ export_presets.cfg
 *.import
 *.pck
 *.exe
+*.apk*
 
 # Imported translations (automatically generated from CSV files)
 *.translation
