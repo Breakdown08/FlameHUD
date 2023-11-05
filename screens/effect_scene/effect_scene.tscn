@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/pendulum_flame/pendulum_flame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/effect_scene/controller.gd" type="Script" id=2]
+[ext_resource path="res://addons/fonts/Medium.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://screens/effect_scene/effect_scene.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="EffectScene" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="PendulumFlame" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+speed_mode = 49
+polarity = -1
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+script = null
+
+[node name="CollisionShape" parent="Floor" index="0"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0 )
+
+[node name="CSGMesh" parent="Floor" index="1"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.00177686, 0.227468, -0.973784, 0, 0.973786, 0.227468, 0.999998, 0.000404178, -0.00173028, -9.13047, 2.59697, -0.269502 )
+current = true
+
+[node name="EffectSceneController" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 300
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+margin_left = 300.0
+margin_top = 505.0
+margin_right = 724.0
+margin_bottom = 550.0
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+margin_right = 424.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Выход"
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+
+[editable path="Floor"]

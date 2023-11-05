@@ -8,10 +8,48 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Button",
+"class": "BaseDialogButton",
+"language": "GDScript",
+"path": "res://addons/dialog_button/base_dialog_button.gd"
+}, {
+"base": "KinematicBody",
+"class": "Cube",
+"language": "GDScript",
+"path": "res://addons/pendulum_flame/pendulum_flame.gd"
+}, {
+"base": "Node",
+"class": "EffectSceneController",
+"language": "GDScript",
+"path": "res://screens/effect_scene/controller.gd"
+}, {
+"base": "Control",
+"class": "MainSceneDialog",
+"language": "GDScript",
+"path": "res://addons/dialog/dialog.gd"
+} ]
+_global_script_class_icons={
+"BaseDialogButton": "",
+"Cube": "",
+"EffectSceneController": "",
+"MainSceneDialog": ""
+}
+
 [application]
 
 config/name="FlameHUD"
+run/main_scene="res://screens/main_scene/main_scene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EventBus="*res://singletones/event_bus.gd"
+ScreenManager="*res://singletones/screen_manager.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [gui]
 

@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/fonts/Medium.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/dialog/dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://screens/main_scene/button1.gd" type="Script" id=3]
+[ext_resource path="res://screens/main_scene/button2.gd" type="Script" id=4]
+[ext_resource path="res://screens/main_scene/button3.gd" type="Script" id=5]
+[ext_resource path="res://screens/main_scene/button4.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="MainScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 980.0
+margin_bottom = 556.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 2
+
+[node name="Button1" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+margin_right = 460.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ПУСТАЯ СЦЕНА"
+script = ExtResource( 3 )
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+margin_left = 490.0
+margin_right = 950.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ЭФФЕКТ"
+script = ExtResource( 4 )
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+margin_top = 278.0
+margin_right = 460.0
+margin_bottom = 526.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ПОМЕНЯТЬ КНОПКИ"
+script = ExtResource( 5 )
+
+[node name="Button4" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
+margin_left = 490.0
+margin_top = 278.0
+margin_right = 950.0
+margin_bottom = 526.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ВЫХОД"
+script = ExtResource( 6 )
+
+[node name="Dialog" parent="PanelContainer" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 37.0
+margin_top = 37.0
+margin_right = 987.0
+margin_bottom = 563.0
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Button1" to="PanelContainer/MarginContainer/GridContainer/Button1" method="_on_Button1_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Button2" to="PanelContainer/MarginContainer/GridContainer/Button2" method="_on_Button2_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Button3" to="PanelContainer/MarginContainer/GridContainer/Button3" method="_on_Button3_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/Button4" to="PanelContainer/MarginContainer/GridContainer/Button4" method="_on_Button4_pressed"]
