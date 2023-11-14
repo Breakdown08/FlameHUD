@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/pendulum_flame/pendulum_flame.gd" type="Script" id=1]
 [ext_resource path="res://addons/particles/flames.tscn" type="PackedScene" id=2]
@@ -31,6 +31,11 @@ color_ramp = SubResource( 3 )
 
 [sub_resource type="BoxShape" id=1]
 
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.180392, 0.996078, 0.996078, 1 )
+
 [node name="PendulumFlame" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -39,3 +44,7 @@ process_material = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+visible = false
+material = SubResource( 7 )
