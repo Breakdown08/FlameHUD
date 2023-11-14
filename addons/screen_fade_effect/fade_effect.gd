@@ -1,32 +1,19 @@
-extends CanvasLayer
+extends ColorRect
 class_name FadeEffect
 
-enum FADE_MODE {FADE_IN, FADE_OUT} #OUT - затухание
+enum FADE_MODE {FADE_IN, FADE_OUT}
 export(FADE_MODE) var fade_mode = FADE_MODE.FADE_OUT
-onready var timer: Timer = $Timer
-onready var effect = $Control/ColorRect
-var effect_value: float
 
 
 func _ready():
-	timer.start()
+	var tween = get_tree().create_tween()
+	if fade_mode == FADE_MODE.FADE_OUT:
+		tween.tween_property(self, "color:a", 1, 1)
+	else:
+		tween.tween_property(self, "color:a", 0, 1)
+	tween.tween_callback(self, "_performed")	
 
 
-func _process(delta):
-	if !timer.is_stopped():
-		if fade_mode == FADE_MODE.FADE_OUT:
-			var time_left = reverse_time_left(timer.time_left, timer.wait_time)
-			if time_left > 0.1:
-				effect_value = time_left
-		else:
-			effect_value = timer.time_left
-		effect.color.a = effect_value
-
-
-func _on_Timer_timeout():
+func _performed():
 	EventBus.emit_signal("fade_effect_performed")
 	self.queue_free()
-
-
-func reverse_time_left(time_left: float, wait_time: float):
-	return wait_time - time_left

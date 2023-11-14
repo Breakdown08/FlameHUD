@@ -43,9 +43,9 @@ corner_radius_bottom_left = 20
 [node name="SphereScene" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="IdleFlame" parent="." instance=ExtResource( 4 )]
+[node name="Flame" parent="." instance=ExtResource( 4 )]
 
-[node name="MovingSphere" parent="." instance=ExtResource( 3 )]
+[node name="Sphere" parent="." instance=ExtResource( 3 )]
 movement_radius = 5.0
 speed = 60.0
 
@@ -54,30 +54,14 @@ transform = Transform( 1, 0, 0, 0, 0.888201, 0.459456, 0, -0.459456, 0.888201, 0
 environment = SubResource( 6 )
 current = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 300
-custom_constants/margin_left = 300
-custom_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
-margin_left = 300.0
-margin_top = 470.0
-margin_right = 724.0
-margin_bottom = 550.0
-rect_min_size = Vector2( 0, 80 )
-size_flags_vertical = 10
-
-[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-margin_right = 424.0
-margin_bottom = 80.0
+[node name="ButtonExit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+margin_left = -212.0
+margin_top = -80.0
+margin_right = 212.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -91,4 +75,4 @@ custom_styles/focus = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "ВЫХОД"
 
-[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_Button_pressed"]

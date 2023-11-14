@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://addons/pendulum_flame/pendulum_flame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/effect_scene/cube.gd" type="Script" id=1]
 [ext_resource path="res://screens/effect_scene/controller.gd" type="Script" id=2]
 [ext_resource path="res://addons/fonts/medium.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://screens/effect_scene/effect_scene.gd" type="Script" id=4]
 [ext_resource path="res://addons/screen_fade_effect/fade_effect.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+albedo_color = Color( 0.180392, 0.996078, 0.996078, 1 )
 
 [sub_resource type="Environment" id=6]
 background_mode = 1
@@ -40,43 +44,29 @@ corner_radius_bottom_left = 20
 [node name="EffectScene" type="Spatial"]
 script = ExtResource( 4 )
 
-[node name="PendulumFlame" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-speed_mode = 49
-polarity = -1
+[node name="Cube" type="KinematicBody" parent="."]
+script = ExtResource( 1 )
+
+[node name="CubeShape" type="CSGBox" parent="Cube"]
+material = SubResource( 7 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.00177686, 0.227468, -0.973784, 0, 0.973786, 0.227468, 0.999998, 0.000404179, -0.00173028, -6.62597, 2.59697, -0.269502 )
+transform = Transform( -0.00177686, 0.227468, -0.973784, 0, 0.973786, 0.227468, 0.999998, 0.000404179, -0.00173028, -8.16016, 1.34061, -0.269502 )
 environment = SubResource( 6 )
 current = true
 
 [node name="EffectSceneController" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 300
-custom_constants/margin_left = 300
-custom_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
-margin_left = 300.0
-margin_top = 470.0
-margin_right = 724.0
-margin_bottom = 550.0
-rect_min_size = Vector2( 0, 80 )
-size_flags_vertical = 10
-
-[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-margin_right = 424.0
-margin_bottom = 80.0
+[node name="ButtonExit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+margin_left = -200.0
+margin_top = -80.0
+margin_right = 200.0
+rect_min_size = Vector2( 400, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
@@ -91,11 +81,7 @@ custom_styles/normal = SubResource( 5 )
 text = "ВЫХОД"
 
 [node name="FadeEffect" parent="." instance=ExtResource( 5 )]
+color = Color( 0, 0, 0, 1 )
 fade_mode = 0
 
-[node name="ColorRect" parent="FadeEffect/Control" index="0"]
-color = Color( 0, 0, 0, 1 )
-
-[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-
-[editable path="FadeEffect"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_Button_pressed"]

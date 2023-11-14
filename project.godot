@@ -22,14 +22,14 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "Cube",
 "language": "GDScript",
-"path": "res://addons/pendulum_flame/pendulum_flame.gd"
+"path": "res://screens/effect_scene/cube.gd"
 }, {
 "base": "Node",
 "class": "EffectSceneController",
 "language": "GDScript",
 "path": "res://screens/effect_scene/controller.gd"
 }, {
-"base": "CanvasLayer",
+"base": "ColorRect",
 "class": "FadeEffect",
 "language": "GDScript",
 "path": "res://addons/screen_fade_effect/fade_effect.gd"

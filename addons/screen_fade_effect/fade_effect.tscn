@@ -2,18 +2,8 @@
 
 [ext_resource path="res://addons/screen_fade_effect/fade_effect.gd" type="Script" id=1]
 
-[node name="FadeEffect" type="CanvasLayer"]
-script = ExtResource( 1 )
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Control" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="FadeEffect" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+script = ExtResource( 1 )

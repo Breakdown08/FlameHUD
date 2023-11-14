@@ -56,15 +56,15 @@ custom_styles/panel = SubResource( 3 )
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-custom_constants/margin_right = 180
+custom_constants/margin_right = 190
 custom_constants/margin_top = 30
-custom_constants/margin_left = 180
+custom_constants/margin_left = 190
 custom_constants/margin_bottom = 30
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
-margin_left = 180.0
+margin_left = 190.0
 margin_top = 30.0
-margin_right = 844.0
+margin_right = 834.0
 margin_bottom = 570.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -73,7 +73,7 @@ custom_constants/hseparation = 30
 columns = 2
 
 [node name="Button1" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_right = 317.0
+margin_right = 307.0
 margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -99,8 +99,8 @@ align = 1
 valign = 1
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 347.0
-margin_right = 664.0
+margin_left = 337.0
+margin_right = 644.0
 margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -125,7 +125,7 @@ valign = 1
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
 margin_top = 285.0
-margin_right = 317.0
+margin_right = 307.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -150,9 +150,9 @@ align = 1
 valign = 1
 
 [node name="Button4" type="Button" parent="PanelContainer/MarginContainer/GridContainer"]
-margin_left = 347.0
+margin_left = 337.0
 margin_top = 285.0
-margin_right = 664.0
+margin_right = 644.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
